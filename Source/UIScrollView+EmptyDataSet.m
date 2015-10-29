@@ -411,6 +411,11 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         [self dzn_willAppear];
         
         DZNEmptyDataSetView *view = self.emptyDataSetView;
+
+        if ([self.emptyDataSetDelegate respondsToSelector:@selector(emptyDataSetTransform)]) {
+            CATransform3D transform = [self.emptyDataSetDelegate emptyDataSetTransform];
+            view.layer.transform = transform;
+        }
         
         if (!view.superview) {
             // Send the view all the way to the back, in case a header and/or footer is present, as well as for sectionHeaders or any other content

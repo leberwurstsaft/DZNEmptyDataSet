@@ -164,6 +164,13 @@
 @optional
 
 /**
+ Asks the delegate to return a CATransform3D to apply to the empty dataset view. Default is CATransform3DIdentity.
+
+ @return CATransform3D to apply
+ */
+- (CATransform3D)emptyDataSetTransform;
+
+/**
  Asks the delegate to know if the empty dataset should be rendered and displayed. Default is YES.
  
  @param scrollView A scrollView subclass object informing the delegate.
